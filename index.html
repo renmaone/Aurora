@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuroraX</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button id="theme-btn" class="theme-btn" title="Mavzuni o'zgartirish">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </div>
+
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='Aurora.png') }}" alt="Aurora Logo" class="logo-img">
+        <span class="logo-text">AuroraX</span>
+      </div>
+      <button class="new-chat-btn" id="new-chat-btn">
+        <img src="{{ url_for('static', filename='bubble-chat.png') }}" alt="Yangi suhbat" class="icon-img">
+        <span class="btn-text">Yangi suhbat</span>
+        <div class="btn-glow"></div>
+      </button>
+    </div>
+    <div class="chat-history" id="chat-history">
+      <div class="skeleton-history">
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <button class="sidebar-btn" id="upload-btn">
+        <img src="{{ url_for('static', filename='image.png') }}" alt="Rasm yuklash" class="icon-img">
+        <span class="btn-text">Rasm yuklash</span>
+      </button>
+      <button class="sidebar-btn">
+        <img src="{{ url_for('static', filename='user.png') }}" alt="Mening hisobim" class="icon-img">
+        <span class="btn-text">Mening hisobim</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="chat-header">
+      <div class="header-center">
+        <span class="neon-text">AuroraX</span>
+        <div class="model-badge">
+          <span class="pulse-dot"></span>
+          GPT-4o
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-container" id="chat-container">
+      <div class="welcome-message">
+        <div class="avatar">
+          <img src="{{ url_for('static', filename='Aurora.png') }}" alt="Aurora" class="avatar-img">
+          <div class="avatar-glow"></div>
+        </div>
+        <h1>Salom! Men Aurora</h1>
+        <p>Men sizga turli sohalarda yordam bera olaman. Savolingizni yozing yoki rasm yuklang!</p>
+        <div class="suggestion-chips">
+          <button class="suggestion-chip" data-prompt="Matematika masalasi yechish">
+            <span class="chip-icon">∞</span>
+            Matematika
+          </button>
+          <button class="suggestion-chip" data-prompt="Dasturlash masalasi">
+            <span class="chip-icon"></></span>
+            Dasturlash
+          </button>
+          <button class="suggestion-chip" data-prompt="Ta'lim va o'qish">
+            <span class="chip-icon">🎓</span>
+            Ta'lim
+          </button>
+          <button class="suggestion-chip" data-prompt="Biznes va moliya">
+            <span class="chip-icon">💼</span>
+            Biznes
+          </button>
+          <button class="suggestion-chip" data-prompt="Texnologiya masalalari">
+            <span class="chip-icon">⚡</span>
+            Texnologiya
+          </button>
+          <button class="suggestion-chip" data-prompt="Sog'liq va tibbiyot">
+            <span class="chip-icon">❤️</span>
+            Sog'liq
+          </button>
+          <button class="suggestion-chip" data-prompt="San'at va ijod">
+            <span class="chip-icon">🎨</span>
+            San'at
+          </button>
+          <button class="suggestion-chip" data-prompt="Sport va fitnes">
+            <span class="chip-icon">⚽</span>
+            Sport
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <div class="input-wrapper">
+        <input type="text" id="user-input" placeholder="Xabar yozing...">
+        <input type="file" id="image-input" accept="image/*" style="display: none;">
+        <button id="image-btn" class="image-btn" title="Rasm yuklash">
+          <img src="{{ url_for('static', filename='image.png') }}" alt="Rasm yuklash" class="icon-img">
+        </button>
+        <button id="send-btn" class="send-btn">
+          <span class="icon-send">➤</span>
+          <div class="send-glow"></div>
+        </button>
+      </div>
+      <div class="image-preview" id="image-preview" style="display: none;">
+        <img id="preview-img" src="" alt="Yuklangan rasm">
+        <button id="remove-image" class="remove-image-btn">
+          <span class="icon-close">×</span>
+        </button>
+      </div>
+      <div class="disclaimer">
+        <img src="{{ url_for('static', filename='Aurora.png') }}" alt="Aurora" class="footer-logo">
+        AuroraX - Matematik formulalar, kod bloklari va rasmlarni qo'llab-quvvatlaydi
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
